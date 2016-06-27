@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="5dp">
+    <!--聊天的时间的处理-->
+    <TextView
+        android:id="@+id/timestamp"
+        style="@style/chat_text_date_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_chat_activity">
+        <!--用户的头像的-->
+        <com.hyphenate.easeui.widget.CircleImageView
+            android:id="@+id/iv_userhead"
+            android:layout_width="@dimen/size_avatar"
+            android:layout_height="@dimen/size_avatar"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:visibility="invisible"
+            android:layout_marginRight="@dimen/margin_chat_activity" />
+        <!--语音的整个的pop .9.png-->
+        <RelativeLayout
+            android:id="@+id/bubble"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginRight="@dimen/margin_chat_activity"
+            android:layout_toLeftOf="@id/iv_userhead">
+
+            <!--语音播放显示的动画-->
+            <!--<ImageView-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:id="@+id/iv_voice"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:paddingLeft="12dp"-->
+            <!--android:paddingRight="10dp"-->
+            <!--android:src="@drawable/ease_chatto_voice_playing" />-->
+            <ProgressBar
+                android:id="@+id/iv_voice"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:progressDrawable="@drawable/shape_voice_send_progress_horizontal_first" />
+
+            <TextView
+                android:id="@+id/tv_length"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shape_voice_send_text"
+                android:text="0:26"
+                android:textColor="#0087ff"
+                android:textSize="10sp" />
+
+
+
+            <ImageView
+                android:id="@+id/voice_pause"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="-30dp"
+                android:layout_toLeftOf="@id/iv_voice"
+                android:src="@drawable/voice_send_pause"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/voice_play"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="-30dp"
+                android:layout_toLeftOf="@id/iv_voice"
+                android:src="@drawable/voice_send_play"
+                android:visibility="invisible" />
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="-30dp"
+                android:layout_toLeftOf="@id/iv_voice"
+                android:visibility="visible" />
+
+            <!--重发的状态显示-->
+            <ImageView
+                android:id="@+id/msg_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@id/iv_voice"
+                android:src="@drawable/send_agin"
+                android:visibility="gone" />
+
+            <!--已读-->
+            <TextView
+                android:id="@+id/tv_ack"
+                style="@style/chat_text_name_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/iv_voice"
+                android:text="@string/text_ack_msg"
+                android:textSize="12sp"
+                android:visibility="invisible" />
+
+            <!--送达-->
+            <TextView
+                android:id="@+id/tv_delivered"
+                style="@style/chat_text_name_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/iv_voice"
+                android:text="@string/text_delivered_msg"
+                android:textSize="12sp"
+                android:visibility="invisible" />
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@id/voice_play"
+                android:layout_toLeftOf="@id/tv_length"
+                android:background="#ffffff"
+                />
+
+        </RelativeLayout>
+
+        <!--***语音的时间长度-->
+        <!--<TextView-->
+        <!--android:id="@+id/tv_length"-->
+        <!--style="@style/chat_text_name_style"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:layout_toLeftOf="@id/bubble"-->
+        <!--android:gravity="center" />-->
+
+        <!--****msg 发送 状态-->
+        <!--<ImageView-->
+        <!--android:id="@+id/msg_status"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_toLeftOf="@id/tv_length"-->
+        <!--android:clickable="true"-->
+        <!--android:src="@drawable/ease_msg_state_failed_resend"-->
+        <!--android:visibility="gone" />-->
+
+        <!--××××已读-->
+        <!--<TextView-->
+        <!--android:id="@+id/tv_ack"-->
+        <!--style="@style/chat_text_name_style"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_toLeftOf="@id/tv_length"-->
+        <!--android:text="@string/text_ack_msg"-->
+        <!--android:textSize="12sp"-->
+        <!--android:visibility="invisible" />-->
+
+        <!--8888送达-->
+        <!--<TextView-->
+        <!--android:id="@+id/tv_delivered"-->
+        <!--style="@style/chat_text_name_style"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_toLeftOf="@id/tv_length"-->
+        <!--android:text="@string/text_delivered_msg"-->
+        <!--android:textSize="12sp"-->
+        <!--android:visibility="invisible" />-->
+
+        <!--×××<ProgressBar-->
+        <!--android:id="@+id/progress_bar"-->
+        <!--android:layout_width="25dp"-->
+        <!--android:layout_height="25dp"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_toLeftOf="@id/tv_length"-->
+        <!--android:visibility="visible" />-->
+    </RelativeLayout>
+
+</LinearLayout>

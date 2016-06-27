@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="5dp">
+
+    <TextView
+        android:id="@+id/timestamp"
+        style="@style/chat_text_date_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_chat_activity">
+
+        <com.hyphenate.easeui.widget.CircleImageView
+            android:id="@+id/iv_userhead"
+            android:layout_width="@dimen/size_avatar"
+            android:layout_height="@dimen/size_avatar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:visibility="invisible"
+            android:layout_marginLeft="@dimen/margin_chat_activity" />
+
+        <RelativeLayout
+            android:id="@+id/bubble"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/size_avatar"
+            android:layout_below="@+id/tv_userid"
+            android:layout_marginLeft="@dimen/margin_chat_activity"
+            android:layout_toRightOf="@id/iv_userhead"
+
+            >
+            <!--android:background="@drawable/ease_chatfrom_bg"-->
+            <ProgressBar
+                android:id="@+id/iv_voice"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="5dp"
+                android:progressDrawable="@drawable/shape_voice_received_progress_horizontal_first" />
+
+            <!--<ImageView-->
+            <!--android:id="@+id/iv_voice"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:paddingRight="12dp"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:src="@drawable/ease_chatfrom_voice_playing" />-->
+            <TextView
+                android:id="@+id/tv_length"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="-30dp"
+                android:layout_toRightOf="@id/iv_voice"
+                android:background="@drawable/shape_voice_received_text"
+                android:text="0:26"
+                android:textColor="#ffffff"
+                android:textSize="10sp" />
+            <!--未读语音的标示-->
+            <ImageView
+                android:id="@+id/iv_unread_voice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/iv_voice"
+                android:src="@drawable/received_status" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/voice_pause"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/voice_send_pause"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/voice_play"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/voice_received_play"
+                android:visibility="invisible" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/tv_length"
+                android:layout_toRightOf="@id/voice_play"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/shape_line_"
+                />
+
+        </RelativeLayout>
+
+        <!--语音的事件长度-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/tv_length"-->
+        <!--style="@style/chat_text_name_style"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_toRightOf="@id/bubble"-->
+        <!--android:layout_alignTop="@id/bubble"-->
+        <!--android:gravity="center"-->
+        <!--android:text="3&apos;&apos;" />-->
+
+        <!--未读语音的标示-->
+        <!--<ImageView-->
+        <!--android:id="@+id/iv_unread_voice"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_alignTop="@id/bubble"-->
+        <!--android:layout_toRightOf="@id/tv_length"-->
+        <!--android:src="@drawable/ease_voice_unread" />-->
+        <!--反正是是个进度的显示-->
+        <!--<ProgressBar-->
+        <!--android:id="@+id/progress_bar"-->
+        <!--style="?android:attr/progressBarStyleSmall"-->
+        <!--android:layout_width="30dp"-->
+        <!--android:layout_height="30dp"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:layout_toRightOf="@id/iv_unread_voice"-->
+        <!--android:visibility="invisible" />-->
+
+        <!--用户的昵称显示 在群聊或者是聊天室的接收的消息中会显示出来-->
+        <TextView
+            android:id="@+id/tv_userid"
+            style="@style/chat_text_name_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/chat_nick_margin_left"
+            android:layout_toRightOf="@id/iv_userhead"
+            android:text="XXXX"
+            android:textSize="@dimen/chat_nick_text_size"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>
